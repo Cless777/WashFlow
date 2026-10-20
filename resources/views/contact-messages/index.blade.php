@@ -1,4 +1,3 @@
-```blade
 @extends('layout.app')
 
 @section('title', 'Pesan Masuk | WashFlow')
@@ -7,12 +6,12 @@
 <div class="container-fluid pt-4 px-4">
 
     {{-- Judul halaman --}}
-    <div class="d-flex align-items-center justify-content-between mb-4">
+    <div class="bg-secondary rounded p-4 mb-4 d-flex align-items-center justify-content-between flex-wrap gap-3">
         <div>
-            <h3 class="mb-1">Pesan Masuk</h3>
-            <p class="text-muted mb-0">
+            <h3 class="text-white mb-1">Pesan Masuk</h3>
+            <small style="color:var(--light);">
                 Kelola pesan yang dikirim melalui halaman Hubungi Kami.
-            </p>
+            </small>
         </div>
 
         <span class="badge bg-primary fs-6">
@@ -42,12 +41,10 @@
     @endif
 
     {{-- Tabel pesan masuk --}}
-    <div class="card border-0 shadow-sm">
-        <div class="card-body">
-
+    <div class="bg-secondary rounded p-4">
             <div class="table-responsive">
-                <table class="table table-hover align-middle">
-                    <thead class="table-light">
+                <table class="table table-dark table-hover align-middle">
+                    <thead>
                         <tr>
                             <th>No.</th>
                             <th>Pengirim</th>
@@ -66,7 +63,7 @@
                                 <td>{{ $loop->iteration }}</td>
 
                                 <td>
-                                    <strong>{{ $contactMessage->name }}</strong>
+                                    <strong>{{ $contactMessage->nama }}</strong>
                                 </td>
 
                                 <td>
@@ -76,14 +73,14 @@
                                     </div>
                                     <div class="text-muted small mt-1">
                                         <i class="fa fa-phone me-1"></i>
-                                        {{ $contactMessage->phone }}
+                                        {{ $contactMessage->no_hp }}
                                     </div>
                                 </td>
 
-                                <td>{{ $contactMessage->subject }}</td>
+                                <td>{{ $contactMessage->subjek }}</td>
 
                                 <td style="min-width: 200px; max-width: 300px;">
-                                    {{ $contactMessage->message }}
+                                    {{ $contactMessage->pesan }}
                                 </td>
 
                                 <td>
@@ -176,8 +173,6 @@
                 </table>
             </div>
 
-        </div>
     </div>
 </div>
 @endsection
-```

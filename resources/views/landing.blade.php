@@ -570,7 +570,7 @@
                             @csrf
 
                             {{-- Pesan Berhasil --}}
-                            @if(session('pesan_terkirim'))
+                            @if($errors->any())
                                 <div class="col-12">
                                     <div class="alert alert-success">
                                         <strong>Mohon periksa kembali data kamu:</strong>
@@ -587,7 +587,7 @@
                                     Nama Lengkap
                                     <span class="text-danger-emphasis">*</span>
                                 </label>
-                                <input type="text" class="form-control form-control-sm" name="nameForm" id="nameForm" value="{{ old('nama') }}" required>
+                                <input type="text" class="form-control form-control-sm" name="nama" id="nameForm" value="{{ old('nama') }}" required>
                                 <div class="invalid-feedback text-xs">
                                     Mohon isi nama lengkap Anda.
                                 </div>
@@ -598,7 +598,7 @@
                                     Alamat Email
                                     <span class="text-danger-emphasis">*</span>
                                 </label>
-                                <input type="email" class="form-control form-control-sm" name="emailForm" id="emailForm" value="{{ old('email') }}" required>
+                                <input type="email" class="form-control form-control-sm" name="email" id="emailForm" value="{{ old('email') }}" required>
                                 <div class="invalid-feedback text-xs">
                                     Mohon isi alamat email Anda.
                                 </div>
@@ -609,7 +609,7 @@
                                     Nomor Telepon
                                     <span class="text-danger-emphasis">*</span>
                                 </label>
-                                <input type="text" class="form-control form-control-sm" name="phoneForm" id="phoneForm" value="{{ old('telepon') }}" required>
+                                <input type="text" class="form-control form-control-sm" name="no_hp" id="phoneForm" value="{{ old('telepon') }}" required>
                                 <div class="invalid-feedback text-xs">
                                     Mohon isi nomor telepon Anda.
                                 </div>
@@ -620,7 +620,7 @@
                                     Subjek
                                     <span class="text-danger-emphasis">*</span>
                                 </label>
-                                <input type="text" class="form-control form-control-sm" name="subjectForm" id="subjectForm" value="{{ old('subjek') }}" required>
+                                <input type="text" class="form-control form-control-sm" name="subjek" id="subjectForm" value="{{ old('subjek') }}" required>
                                 <div class="invalid-feedback text-xs">
                                     Mohon isi subjek pesan Anda.
                                 </div>
@@ -631,7 +631,7 @@
                                     Pesan Anda
                                     <span class="text-danger-emphasis">*</span>
                                 </label>
-                                <textarea class="form-control form-control-sm" name="messageForm" id="messageForm" rows="3" required>{{ old('pesan') }}</textarea>
+                                <textarea class="form-control form-control-sm" name="pesan" id="messageForm" rows="3" required>{{ old('pesan') }}</textarea>
                                 <div class="invalid-feedback text-xs">
                                     Mohon isi pesan Anda.
                                 </div>
@@ -639,7 +639,7 @@
 
                             <div class="col-12">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck" value="1" required>
+                                    <input class="form-check-input" type="checkbox" id="gridCheck" name="persetujuan_privasi" value="1" required>
                                     <label class="form-check-label text-sm" for="gridCheck">
                                         Saya menyetujui syarat &amp; ketentuan serta kebijakan privasi
                                         <span class="text-danger-emphasis">*</span>
